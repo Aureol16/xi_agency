@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>XI Agency – Agence Digitale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+  <div class="logo">XI <span>AGENCY</span></div>
+  <nav>
+    <a href="#hero">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projets</a>
+    <a href="#testimonials">Avis</a>
+    <a href="#contact">Contact</a>
+    <button class="btn-primary">Demander un devis</button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>
+      Nous créons des expériences digitales<br>
+      <span>qui font grandir votre business</span>
+    </h1>
+    <p>Branding · Marketing Digital · Design · Solutions Web</p>
+
+    <div class="hero-buttons">
+      <button class="btn-primary">Démarrer un projet</button>
+      <button class="btn-outline" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">
+        Voir nos projets
+      </button>
+    </div>
+  </div>
+
+  <img src="assets/hero.png" class="hero-img" alt="Digital agency">
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <h2>Nos Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <i class="fa-solid fa-pen-nib"></i>
+      <h3>Branding & Identité</h3>
+      <p>Logos et identité visuelle professionnelle.</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-bullhorn"></i>
+      <h3>Marketing Digital</h3>
+      <p>Stratégies adaptées à vos objectifs.</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-image"></i>
+      <h3>Création de Contenu</h3>
+      <p>Contenus modernes et engageants.</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-code"></i>
+      <h3>Développement Web</h3>
+      <p>Sites performants et sécurisés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="why">
+  <h2>Pourquoi Choisir XI Agency ?</h2>
+  <p class="why-subtitle">Une agence digitale innovante et performante</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <i class="fa-solid fa-rocket"></i>
+      <h4>Résultats Garantis</h4>
+      <p>Approche orientée performance et croissance.</p>
+    </div>
+
+    <div class="why-card">
+      <i class="fa-solid fa-bullseye"></i>
+      <h4>Stratégies Sur Mesure</h4>
+      <p>Des solutions adaptées à vos objectifs.</p>
+    </div>
+
+    <div class="why-card">
+      <i class="fa-solid fa-lightbulb"></i>
+      <h4>Créativité & Innovation</h4>
+      <p>Toujours à la pointe des tendances digitales.</p>
+    </div>
+
+    <div class="why-card">
+      <i class="fa-solid fa-handshake"></i>
+      <h4>Accompagnement Personnalisé</h4>
+      <p>Une équipe dédiée à votre réussite.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="projects" id="projects">
+  <h2>Nos Réalisations</h2>
+
+  <div class="projects-grid">
+    <div class="project">
+      <img src="assets/project1.png" alt="">
+      <h4>NeoTech</h4>
+    </div>
+
+    <div class="project">
+      <img src="assets/project2.png" alt="">
+      <h4>Luxoria</h4>
+    </div>
+  </div>
+
+  <div class="projects-btn">
+    <button class="btn-primary">Voir plus de projets</button>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="testimonials">
+  <h2>Témoignages Clients</h2>
+
+  <div class="test-grid">
+    <div class="test">
+      <img src="assets/avatar1.jpg" alt="">
+      <h4>Sophie Martin</h4>
+      <span>⭐⭐⭐⭐⭐</span>
+      <p>Agence très professionnelle, résultats rapides.</p>
+    </div>
+
+    <div class="test">
+      <img src="assets/avatar2.jpg" alt="">
+      <h4>Marc Dubois</h4>
+      <span>⭐⭐⭐⭐⭐</span>
+      <p>Une équipe créative et à l’écoute. Je recommande.</p>
+    </div>
+
+    <div class="test">
+      <img src="assets/avatar1.jpg" alt="">
+      <h4>Laura Bernard</h4>
+      <span>⭐⭐⭐⭐⭐</span>
+      <p>Un accompagnement personnalisé et efficace.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>XI <span>AGENCY</span></h3>
+      <p>
+        Agence digitale spécialisée en branding,
+        marketing et développement web.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#hero">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projets</a>
+      <a href="#testimonials">Avis</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📧 contact@xiagency.com</p>
+      <p>📞 +33 7 00 00 00 00</p>
+      <p>📍 France</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Réseaux</h4>
+      <div class="socials">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 XI Agency — Tous droits réservés
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
