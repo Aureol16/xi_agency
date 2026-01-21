@@ -1,203 +1,871 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>XI Agency – Agence Digitale</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalis Lab | Laboratoire de Communication & Innovation Digitale</title>
+    <meta name="description" content="Digitalis Lab - Votre partenaire en stratégie digitale, branding, développement web et production média au Bénin.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-
-<!-- ================= HEADER ================= -->
-<header class="navbar">
-  <div class="logo">XI <span>AGENCY</span></div>
-  <nav>
-    <a href="#hero">Accueil</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projets</a>
-    <a href="#testimonials">Avis</a>
-    <a href="#contact">Contact</a>
-    <button class="btn-primary">Demander un devis</button>
-  </nav>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <h1>
-      Nous créons des expériences digitales<br>
-      <span>qui font grandir votre business</span>
-    </h1>
-    <p>Branding · Marketing Digital · Design · Solutions Web</p>
-
-    <div class="hero-buttons">
-      <button class="btn-primary">Démarrer un projet</button>
-      <button class="btn-outline" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">
-        Voir nos projets
-      </button>
-    </div>
-  </div>
-
-  <img src="assets/hero.png" class="hero-img" alt="Digital agency">
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="services" id="services">
-  <h2>Nos Services</h2>
-
-  <div class="cards">
-    <div class="card">
-      <i class="fa-solid fa-pen-nib"></i>
-      <h3>Branding & Identité</h3>
-      <p>Logos et identité visuelle professionnelle.</p>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">DIGITALIS LAB</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-      <i class="fa-solid fa-bullhorn"></i>
-      <h3>Marketing Digital</h3>
-      <p>Stratégies adaptées à vos objectifs.</p>
-    </div>
+    <!-- Cursor Custom -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
 
-    <div class="card">
-      <i class="fa-solid fa-image"></i>
-      <h3>Création de Contenu</h3>
-      <p>Contenus modernes et engageants.</p>
-    </div>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.jpeg" alt="Digitalis Lab Logo" class="logo-img">
+                <span class="logo-text">DIGITALIS LAB</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#innovation" class="nav-link">Innovation Lab</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
 
-    <div class="card">
-      <i class="fa-solid fa-code"></i>
-      <h3>Développement Web</h3>
-      <p>Sites performants et sécurisés.</p>
-    </div>
-  </div>
-</section>
+            <div class="nav-buttons">
+                <a href="#contact" class="btn btn-primary nav-cta">Démarrer un projet</a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<!-- ================= WHY ================= -->
-<section class="why">
-  <h2>Pourquoi Choisir XI Agency ?</h2>
-  <p class="why-subtitle">Une agence digitale innovante et performante</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-animation">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="grid-lines"></div>
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </div>
 
-  <div class="why-grid">
-    <div class="why-card">
-      <i class="fa-solid fa-rocket"></i>
-      <h4>Résultats Garantis</h4>
-      <p>Approche orientée performance et croissance.</p>
-    </div>
+        <div class="hero-container container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up">
+                    <span class="badge-dot"></span>
+                    <span>Bienvenue chez Digitalis Lab</span>
+                </div>
+                
+                <h1 class="hero-title animate-fade-up delay-1">
+                    Transformer vos idées en 
+                    <span class="text-gradient">solutions digitales</span> 
+                    performantes.
+                </h1>
+                
+                <p class="hero-description animate-fade-up delay-2">
+                    Audit, stratégie digitale, branding, web et production média au service de votre croissance.
+                </p>
+                
+                <div class="hero-buttons animate-fade-up delay-3">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <span>Démarrer un projet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-lg">
+                        <span>Nous contacter</span>
+                    </a>
+                </div>
 
-    <div class="why-card">
-      <i class="fa-solid fa-bullseye"></i>
-      <h4>Stratégies Sur Mesure</h4>
-      <p>Des solutions adaptées à vos objectifs.</p>
-    </div>
+                <div class="hero-stats animate-fade-up delay-4">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="30">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Années d'expertise</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="why-card">
-      <i class="fa-solid fa-lightbulb"></i>
-      <h4>Créativité & Innovation</h4>
-      <p>Toujours à la pointe des tendances digitales.</p>
-    </div>
+            <div class="hero-visual animate-fade-left delay-2">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-container">
+                        <img src="assets/header1.jpg" alt="Digitalis Lab Team" class="hero-image">
+                        <div class="hero-image-overlay"></div>
+                    </div>
+                    <div class="hero-card hero-card-1">
+                        <i class="fas fa-rocket"></i>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="hero-card hero-card-2">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Croissance</span>
+                    </div>
+                    <div class="hero-decorations">
+                        <div class="deco-circle deco-circle-1"></div>
+                        <div class="deco-circle deco-circle-2"></div>
+                        <div class="deco-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="why-card">
-      <i class="fa-solid fa-handshake"></i>
-      <h4>Accompagnement Personnalisé</h4>
-      <p>Une équipe dédiée à votre réussite.</p>
-    </div>
-  </div>
-</section>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
 
-<!-- ================= PROJECTS ================= -->
-<section class="projects" id="projects">
-  <h2>Nos Réalisations</h2>
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image reveal-left">
+                    <div class="about-image-container">
+                        <img src="assets/header2.jpg" alt="À propos de Digitalis Lab">
+                        <div class="about-image-border"></div>
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-number">5+</span>
+                        <span class="exp-text">Années d'expérience</span>
+                    </div>
+                </div>
 
-  <div class="projects-grid">
-    <div class="project">
-      <img src="assets/project1.png" alt="">
-      <h4>NeoTech</h4>
-    </div>
+                <div class="about-content reveal-right">
+                    <div class="section-tag">
+                        <span class="tag-line"></span>
+                        <span>À propos</span>
+                    </div>
+                    
+                    <h2 class="section-title">
+                        Qui sommes-<span class="text-gradient">nous</span> ?
+                    </h2>
+                    
+                    <p class="about-subtitle">
+                        Un laboratoire de communication et d'innovation digitale dédié à transformer vos idées en solutions concrètes.
+                    </p>
+                    
+                    <p class="about-text">
+                        Digitalis Lab accompagne entrepreneurs, PME, ONG et porteurs de projets dans la conception, la structuration et le déploiement de solutions digitales innovantes.
+                    </p>
+                    <p class="about-text">
+                        Chaque projet est pour nous une opportunité de créer de la valeur, renforcer votre image et accompagner votre croissance.
+                    </p>
 
-    <div class="project">
-      <img src="assets/project2.png" alt="">
-      <h4>Luxoria</h4>
-    </div>
-  </div>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span>Innovation</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-chess"></i>
+                            </div>
+                            <span>Stratégie</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <span>Créativité</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <span>Impact</span>
+                        </div>
+                    </div>
 
-  <div class="projects-btn">
-    <button class="btn-primary">Voir plus de projets</button>
-  </div>
-</section>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Démarrer votre projet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= TESTIMONIALS ================= -->
-<section class="testimonials" id="testimonials">
-  <h2>Témoignages Clients</h2>
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="services-bg">
+            <div class="services-glow"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span>Nos expertises</span>
+                </div>
+                <h2 class="section-title">
+                    Des solutions digitales <span class="text-gradient">complètes</span>
+                </h2>
+                <p class="section-description">
+                    Des solutions digitales complètes pour transformer vos idées en projets concrets.
+                </p>
+            </div>
 
-  <div class="test-grid">
-    <div class="test">
-      <img src="assets/avatar1.jpg" alt="">
-      <h4>Sophie Martin</h4>
-      <span>⭐⭐⭐⭐⭐</span>
-      <p>Agence très professionnelle, résultats rapides.</p>
-    </div>
+            <div class="services-carousel-container">
+                <div class="services-carousel" id="services-carousel">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3 class="service-title">Audit & Stratégie Digitale</h3>
+                        <p class="service-description">Analyser, structurer et orienter vos décisions digitales.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
 
-    <div class="test">
-      <img src="assets/avatar2.jpg" alt="">
-      <h4>Marc Dubois</h4>
-      <span>⭐⭐⭐⭐⭐</span>
-      <p>Une équipe créative et à l’écoute. Je recommande.</p>
-    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="service-title">Web Design & Développement</h3>
+                        <p class="service-description">Des sites modernes, rapides et performants.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
 
-    <div class="test">
-      <img src="assets/avatar1.jpg" alt="">
-      <h4>Laura Bernard</h4>
-      <span>⭐⭐⭐⭐⭐</span>
-      <p>Un accompagnement personnalisé et efficace.</p>
-    </div>
-  </div>
-</section>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3 class="service-title">Branding & Identité Visuelle</h3>
+                        <p class="service-description">Construire une image forte, cohérente et mémorable.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
 
-<!-- ================= FOOTER ================= -->
-<footer id="contact">
-  <div class="footer-container">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="service-title">Production Média</h3>
+                        <p class="service-description">Vidéo, montage, voix off à fort impact.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
 
-    <div class="footer-col">
-      <h3>XI <span>AGENCY</span></h3>
-      <p>
-        Agence digitale spécialisée en branding,
-        marketing et développement web.
-      </p>
-    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="service-title">Hub d'Innovation</h3>
+                        <p class="service-description">Structurer, tester et développer vos idées.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
 
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="#hero">Accueil</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projets</a>
-      <a href="#testimonials">Avis</a>
-    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="service-title">Développement de Projets</h3>
+                        <p class="service-description">Transformer une idée en solution concrète.</p>
+                        <a href="#contact" class="service-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>📧 contact@xiagency.com</p>
-      <p>📞 +33 7 00 00 00 00</p>
-      <p>📍 France</p>
-    </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn carousel-prev" id="carousel-prev">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="carousel-dots" id="carousel-dots"></div>
+                <button class="carousel-btn carousel-next" id="carousel-next">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer-col">
-      <h4>Réseaux</h4>
-      <div class="socials">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-      </div>
-    </div>
+    <!-- Innovation Lab Section -->
+    <section class="innovation section" id="innovation">
+        <div class="container">
+            <div class="innovation-wrapper">
+                <div class="innovation-content reveal-left">
+                    <div class="section-tag">
+                        <span class="tag-line"></span>
+                        <span>Innovation Lab</span>
+                    </div>
+                    
+                    <h2 class="section-title">
+                        Le laboratoire où naissent les 
+                        <span class="text-gradient">idées de demain</span>
+                    </h2>
+                    
+                    <p class="innovation-text">
+                        Notre Hub d'Innovation est un espace dédié à l'expérimentation, au prototypage et au développement de solutions digitales innovantes.
+                    </p>
 
-  </div>
+                    <div class="innovation-features">
+                        <div class="feature-item">
+                            <div class="feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Remote Home Office</h4>
+                                <p>Lacus in ridiculus mi gravida montes leo arcu semper conubia</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Virtual Workstation</h4>
+                                <p>Lacus in ridiculus mi gravida montes leo arcu semper conubia</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Terminal Server</h4>
+                                <p>Lacus in ridiculus mi gravida montes leo arcu semper conubia</p>
+                            </div>
+                        </div>
+                    </div>
 
-  <div class="footer-bottom">
-    © 2026 XI Agency — Tous droits réservés
-  </div>
-</footer>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Découvrir le Lab</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
 
-<script src="script.js"></script>
+                <div class="innovation-visual reveal-right">
+                    <div class="innovation-image-container">
+                        <img src="assets/header1.jpg" alt="Innovation Lab">
+                        <div class="innovation-overlay"></div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="float-element float-1">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="float-element float-2">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="float-element float-3">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span>Nos partenaires</span>
+                </div>
+                <h2 class="section-title">
+                    Ils nous ont fait <span class="text-gradient">confiance</span>
+                </h2>
+                <p class="section-description">
+                    Entrepreneurs, startups, ONG et organisations locales nous ont accordé leur confiance.
+                </p>
+            </div>
+
+            <div class="clients-stats reveal-up">
+                <div class="client-stat">
+                    <span class="client-stat-number" data-count="30000">0</span>
+                    <span class="client-stat-label">Clients satisfaits</span>
+                </div>
+            </div>
+
+            <div class="clients-carousel reveal-up">
+                <div class="clients-track">
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Accompagnement en stratégie digitale</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGO</div>
+                        <div class="client-overlay">
+                            <span>Branding & identité visuelle</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Production média et voix off</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Développement web</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">logoipsum</div>
+                        <div class="client-overlay">
+                            <span>Stratégie digitale</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">logoipsum</div>
+                        <div class="client-overlay">
+                            <span>Innovation digitale</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Accompagnement en stratégie digitale</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGO</div>
+                        <div class="client-overlay">
+                            <span>Branding & identité visuelle</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Production média et voix off</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">LOGOIPSUM</div>
+                        <div class="client-overlay">
+                            <span>Développement web</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">logoipsum</div>
+                        <div class="client-overlay">
+                            <span>Stratégie digitale</span>
+                        </div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">logoipsum</div>
+                        <div class="client-overlay">
+                            <span>Innovation digitale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="testimonials-bg">
+            <div class="testimonial-glow"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span>Témoignages</span>
+                </div>
+                <h2 class="section-title">
+                    Ce qu'ils <span class="text-gradient">disent</span> de nous
+                </h2>
+            </div>
+
+            <div class="testimonials-wrapper reveal-up">
+                <div class="testimonials-slider" id="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Un accompagnement stratégique clair et efficace. L'équipe de Digitalis Lab a su comprendre nos besoins et nous proposer des solutions adaptées."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <span>JD</span>
+                            </div>
+                            <div class="author-info">
+                                <h4>Jean Dupont</h4>
+                                <span>Entrepreneur, Cotonou</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Une vision moderne de la communication et du digital. Leur expertise nous a permis de repenser entièrement notre présence en ligne."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <span>MK</span>
+                            </div>
+                            <div class="author-info">
+                                <h4>Marie Kouassi</h4>
+                                <span>Responsable de projet</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Digitalis Lab a transformé notre idée en un projet concret. Leur accompagnement du début à la fin a été exemplaire."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <span>AB</span>
+                            </div>
+                            <div class="author-info">
+                                <h4>Amina Bello</h4>
+                                <span>ONG locale</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-nav">
+                    <button class="testimonial-btn testimonial-prev" id="testimonial-prev">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="testimonials-dots" id="testimonials-dots"></div>
+                    <button class="testimonial-btn testimonial-next" id="testimonial-next">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span>Localisation</span>
+                </div>
+                <h2 class="section-title">
+                    Où nous <span class="text-gradient">trouver</span>
+                </h2>
+            </div>
+
+            <div class="location-wrapper reveal-up">
+                <div class="location-map">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <div class="map-grid"></div>
+                            <div class="map-pin">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="pin-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-info">
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="location-details">
+                            <h4>Adresse</h4>
+                            <p>Digitalis Lab, Cotonou – Bénin</p>
+                        </div>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="location-details">
+                            <h4>Téléphone</h4>
+                            <p>+229 XX XX XX XX</p>
+                        </div>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="location-details">
+                            <h4>Email</h4>
+                            <p>contact@digitalislab.com</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="contact-bg">
+            <div class="contact-glow"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span>Contact</span>
+                </div>
+                <h2 class="section-title">
+                    Contactez-<span class="text-gradient">nous</span>
+                </h2>
+                <p class="section-description">
+                    Vous avez un projet, une idée ou besoin d'accompagnement ? Parlons-en.
+                </p>
+            </div>
+
+            <div class="contact-wrapper reveal-up">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        <span class="input-focus"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        <span class="input-focus"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="audit">Audit & Stratégie Digitale</option>
+                            <option value="web">Web Design & Développement</option>
+                            <option value="branding">Branding & Identité Visuelle</option>
+                            <option value="media">Production Média</option>
+                            <option value="innovation">Innovation Lab</option>
+                            <option value="other">Autre</option>
+                        </select>
+                        <span class="input-focus"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet..." required></textarea>
+                        <span class="input-focus"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg submit-btn">
+                        <span>Envoyer le message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <div class="contact-info-side">
+                    <div class="info-card">
+                        <h3>Prêt à transformer vos idées ?</h3>
+                        <p>Notre équipe est disponible pour discuter de votre projet et vous proposer des solutions adaptées.</p>
+                        
+                        <div class="quick-contact">
+                            <div class="quick-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@digitalislab.com</span>
+                            </div>
+                            <div class="quick-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+229 XX XX XX XX</span>
+                            </div>
+                            <div class="quick-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Lun - Ven: 9h - 18h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#" class="footer-logo">
+                            <img src="assets/logo.jpeg" alt="Digitalis Lab">
+                            <span>DIGITALIS LAB</span>
+                        </a>
+                        <p>Laboratoire de communication et d'innovation digitale au service de votre croissance.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#about">À propos</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#innovation">Innovation Lab</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Audit & Stratégie</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Branding</a></li>
+                            <li><a href="#">Production Média</a></li>
+                            <li><a href="#">Innovation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Restez informé de nos dernières actualités.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email">
+                            <button type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Digitalis Lab — Tous droits réservés</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
