@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollReveal();
     initCounterAnimation();
+    initHeroImagesCarousel();
     initServicesCarousel();
     initTestimonialsSlider();
     initContactForm();
@@ -294,6 +295,105 @@ function initCounterAnimation() {
 }
 
 /**
+ * Hero Images Carousel
+ */
+function initHeroImagesCarousel() {
+    const carousel = document.getElementById('hero-images-carousel');
+    if (!carousel) return;
+    
+    const images = carousel.querySelectorAll('.hero-image');
+    if (images.length < 2) return;
+    
+    let currentIndex = 0;
+    let autoplayInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    function showImage(index) {
+        images.forEach((img, i) => {
+            if (i === index) {
+                img.classList.add('active');
+                img.parentElement.classList.add('active');
+            } else {
+                img.classList.remove('active');
+                img.parentElement.classList.remove('active');
+            }
+        });
+    }
+    
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+    
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextImage, 5000);
+    }
+    
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+    
+    // Touch support
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        clearInterval(autoplayInterval);
+    }, { passive: true });
+    
+    carousel.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', () => {
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextImage();
+            } else {
+                prevImage();
+            }
+        }
+        
+        resetAutoplay();
+    });
+    
+    // Mouse click support
+    carousel.addEventListener('click', (e) => {
+        const rect = carousel.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        
+        if (clickX > width / 2) {
+            nextImage();
+        } else {
+            prevImage();
+        }
+        
+        resetAutoplay();
+    });
+    
+    // Initialize
+    showImage(0);
+    startAutoplay();
+    
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        startAutoplay();
+    });
+}
+
+/**
  * Services Carousel
  */
 function initServicesCarousel() {
@@ -302,7 +402,20 @@ function initServicesCarousel() {
     const nextBtn = document.getElementById('carousel-next');
     const dotsContainer = document.getElementById('carousel-dots');
     
-    if (!carousel || !prevBtn || !nextBtn || !dotsContainer) return;
+    if (!carousel) {
+        console.warn('Services carousel not found');
+        return;
+    }
+    
+    if (!prevBtn || !nextBtn) {
+        console.warn('Carousel navigation buttons not found');
+        return;
+    }
+    
+    if (!dotsContainer) {
+        console.warn('Carousel dots container not found');
+        return;
+    }
     
     const cards = carousel.querySelectorAll('.service-card');
     const cardWidth = 350 + 32; // card width + gap
