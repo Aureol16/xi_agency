@@ -261,40 +261,39 @@ function initCounterAnimation() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const el = entry.target;
-                const isStatCard = el.closest('.stat-card');
+                const isStatItem = el.closest('.stat-item');
                 
                 // Délai pour que l'animation soit plus visible
                 setTimeout(() => {
-                    if (isStatCard) {
+                    if (isStatItem) {
                         animateStatCounter(el);
                     } else {
                         animateCounter(el);
                     }
-                }, 300);
+                }, 200);
                 
                 counterObserver.unobserve(el);
             }
         });
     }, counterOptions);
     
+    // Observer tous les compteurs
     counters.forEach(counter => {
         counterObserver.observe(counter);
+        
+        // Déclencher immédiatement si déjà visible dans le hero
+        const rect = counter.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        const isStatItem = counter.closest('.stat-item');
+        const isInHero = counter.closest('.hero');
+        
+        if (isVisible && isStatItem && isInHero && !counter.classList.contains('counted') && !counter.classList.contains('counting')) {
+            // Déclencher après un court délai pour laisser le DOM se stabiliser
+            setTimeout(() => {
+                animateStatCounter(counter);
+            }, 500);
+        }
     });
-    
-    // Vérifier si les compteurs sont déjà visibles au chargement
-    setTimeout(() => {
-        counters.forEach(counter => {
-            const rect = counter.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            const isStatCard = counter.closest('.stat-card');
-            
-            if (isVisible && isStatCard && !counter.classList.contains('counted')) {
-                setTimeout(() => {
-                    animateStatCounter(counter);
-                }, 500);
-            }
-        });
-    }, 1000);
     
     function animateCounter(el) {
         const target = parseInt(el.getAttribute('data-count'));
@@ -324,58 +323,29 @@ function initCounterAnimation() {
         const target = parseInt(el.getAttribute('data-count'));
         if (isNaN(target) || target <= 0) return;
         
-        const duration = 2000; // 2 secondes pour plus de visibilité
-        const startTime = Date.now();
-        const startValue = 0;
-        let lastValue = 0;
-        
-        // Easing function pour un effet plus fluide (ease-out cubic)
-        const easeOutCubic = (t) => {
-            return 1 - Math.pow(1 - t, 3);
-        };
+        // Utiliser le même modèle que animateLargeCounter
+        const duration = 2000; // 2 secondes comme pour les grands nombres
+        const step = target / (duration / 16);
+        let current = 0;
         
         // Ajouter la classe counting immédiatement
         el.classList.add('counting');
         
         const updateCounter = () => {
-            const elapsed = Date.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutCubic(progress);
-            const current = Math.floor(startValue + (target - startValue) * easedProgress);
-            
-            // Mettre à jour seulement si la valeur a changé
-            if (current !== lastValue) {
-                el.textContent = current;
-                lastValue = current;
-                
-                // Effet visuel à chaque changement
-                el.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    el.style.transform = 'scale(1)';
-                }, 100);
-            }
-            
-            if (progress < 1) {
+            current += step;
+            if (current < target) {
+                el.textContent = Math.floor(current);
                 requestAnimationFrame(updateCounter);
             } else {
                 // Animation terminée
                 el.textContent = target;
                 el.classList.remove('counting');
                 el.classList.add('counted');
-                el.style.transform = '';
-                
-                // Animation finale de rebond
-                setTimeout(() => {
-                    el.style.transform = 'scale(1.2)';
-                    setTimeout(() => {
-                        el.style.transform = 'scale(1)';
-                    }, 300);
-                }, 50);
             }
         };
         
         // Démarrer l'animation
-        requestAnimationFrame(updateCounter);
+        updateCounter();
     }
     
     // Large number counter (clients stats)
