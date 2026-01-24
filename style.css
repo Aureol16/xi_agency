@@ -179,6 +179,7 @@ button {
 .section {
     padding: var(--spacing-4xl) 0;
     position: relative;
+    margin-bottom: var(--spacing-2xl);
 }
 
 .text-gradient {
@@ -2307,7 +2308,7 @@ button {
     color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
 }
 
 .tag-line {
@@ -2333,11 +2334,12 @@ button {
     font-size: 1.125rem;
     color: var(--color-text-secondary);
     max-width: 600px;
+    margin-bottom: var(--spacing-xl);
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
 }
 
 .section-header .section-description {
@@ -2350,7 +2352,7 @@ button {
 .about-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-3xl);
     align-items: center;
 }
 
@@ -2420,19 +2422,19 @@ button {
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
 .about-text {
     color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .values-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-    margin: var(--spacing-2xl) 0;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-3xl) 0;
 }
 
 .about-content .btn {
@@ -2650,7 +2652,7 @@ button {
 .innovation-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-3xl);
     align-items: center;
 }
 
@@ -2670,7 +2672,7 @@ button {
 .feature-item {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
     padding: var(--spacing-md);
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
