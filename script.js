@@ -146,22 +146,51 @@ function initMobileNav() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.getElementById('header');
     
     if (!navToggle || !navMenu) return;
     
+    function openMenu() {
+        navToggle.classList.add('active');
+        navMenu.classList.add('active');
+        document.body.classList.add('no-scroll', 'menu-open');
+        if (header) header.style.zIndex = '1001';
+    }
+    
+    function closeMenu() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('no-scroll', 'menu-open');
+        if (header) header.style.zIndex = '1000';
+    }
+    
     navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
     
     // Close menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('no-scroll');
+            closeMenu();
         });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu when clicking outside
+    navMenu.addEventListener('click', (e) => {
+        if (e.target === navMenu) {
+            closeMenu();
+        }
     });
 }
 
@@ -224,14 +253,26 @@ function initCounterAnimation() {
     const counters = document.querySelectorAll('[data-count]');
     
     const counterOptions = {
-        threshold: 0.5
+        threshold: 0.3,
+        rootMargin: '0px'
     };
     
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                counterObserver.unobserve(entry.target);
+                const el = entry.target;
+                const isStatCard = el.closest('.stat-card');
+                
+                // Délai pour que l'animation soit plus visible
+                setTimeout(() => {
+                    if (isStatCard) {
+                        animateStatCounter(el);
+                    } else {
+                        animateCounter(el);
+                    }
+                }, 300);
+                
+                counterObserver.unobserve(el);
             }
         });
     }, counterOptions);
@@ -239,6 +280,21 @@ function initCounterAnimation() {
     counters.forEach(counter => {
         counterObserver.observe(counter);
     });
+    
+    // Vérifier si les compteurs sont déjà visibles au chargement
+    setTimeout(() => {
+        counters.forEach(counter => {
+            const rect = counter.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            const isStatCard = counter.closest('.stat-card');
+            
+            if (isVisible && isStatCard && !counter.classList.contains('counted')) {
+                setTimeout(() => {
+                    animateStatCounter(counter);
+                }, 500);
+            }
+        });
+    }, 1000);
     
     function animateCounter(el) {
         const target = parseInt(el.getAttribute('data-count'));
@@ -257,6 +313,69 @@ function initCounterAnimation() {
         };
         
         updateCounter();
+    }
+    
+    function animateStatCounter(el) {
+        // Vérifier si déjà animé
+        if (el.classList.contains('counted') || el.classList.contains('counting')) {
+            return;
+        }
+        
+        const target = parseInt(el.getAttribute('data-count'));
+        if (isNaN(target) || target <= 0) return;
+        
+        const duration = 2000; // 2 secondes pour plus de visibilité
+        const startTime = Date.now();
+        const startValue = 0;
+        let lastValue = 0;
+        
+        // Easing function pour un effet plus fluide (ease-out cubic)
+        const easeOutCubic = (t) => {
+            return 1 - Math.pow(1 - t, 3);
+        };
+        
+        // Ajouter la classe counting immédiatement
+        el.classList.add('counting');
+        
+        const updateCounter = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutCubic(progress);
+            const current = Math.floor(startValue + (target - startValue) * easedProgress);
+            
+            // Mettre à jour seulement si la valeur a changé
+            if (current !== lastValue) {
+                el.textContent = current;
+                lastValue = current;
+                
+                // Effet visuel à chaque changement
+                el.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                }, 100);
+            }
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                // Animation terminée
+                el.textContent = target;
+                el.classList.remove('counting');
+                el.classList.add('counted');
+                el.style.transform = '';
+                
+                // Animation finale de rebond
+                setTimeout(() => {
+                    el.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        el.style.transform = 'scale(1)';
+                    }, 300);
+                }, 50);
+            }
+        };
+        
+        // Démarrer l'animation
+        requestAnimationFrame(updateCounter);
     }
     
     // Large number counter (clients stats)
@@ -345,7 +464,7 @@ function initHeroImagesCarousel() {
     }
     
     function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, 3000);
+        autoplayInterval = setInterval(nextSlide, 10000);
     }
     
     function resetAutoplay() {
