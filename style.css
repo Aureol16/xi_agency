@@ -177,7 +177,7 @@ button {
 }
 
 .section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-4xl) 0;
     position: relative;
 }
 
@@ -760,7 +760,7 @@ button {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: var(--header-height);
+    padding-top: 0;
     overflow: hidden;
 }
 
@@ -984,7 +984,7 @@ button {
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     font-weight: 700;
     line-height: 1.1;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
     position: relative;
 }
 
@@ -1035,7 +1035,7 @@ button {
     color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     position: relative;
     display: inline-block;
     animation: miniTextSlide 0.6s ease-out both;
@@ -1090,7 +1090,7 @@ button {
 .hero-description {
     font-size: 1.125rem;
     color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
     max-width: 500px;
     line-height: 1.6;
 }
@@ -1582,8 +1582,8 @@ button {
 }
 
 .hero-image-container.hero-image-person {
-    width: 500px;
-    height: 600px;
+    width: 400px;
+    height: 450px;
     max-width: 100%;
 }
 
@@ -2109,6 +2109,7 @@ button {
 
 /* Hero Navigation Dots */
 .hero-nav-dots {
+    display: none;
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -2320,12 +2321,12 @@ button {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .innovation .section-title {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
 }
 
 .section-description {
@@ -2432,6 +2433,10 @@ button {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
     margin: var(--spacing-2xl) 0;
+}
+
+.about-content .btn {
+    margin-top: var(--spacing-3xl);
 }
 
 .value-item {
@@ -2651,21 +2656,21 @@ button {
 
 .innovation-text {
     color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
 .innovation-features {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
 .innovation-content .btn {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-xl);
 }
 
 .feature-item {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     padding: var(--spacing-md);
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
@@ -4107,13 +4112,13 @@ button {
     .hero-image-container {
         width: 100%;
         max-width: 400px;
-        height: 450px;
+        height: 10px;
         margin: 0 auto;
     }
     
     .hero-image-container.hero-image-person {
-        max-width: 450px;
-        height: 500px;
+        max-width: 350px;
+        height: 40px;
     }
     
     .hero-image {
@@ -4224,7 +4229,7 @@ button {
     }
     
     .section {
-        padding: var(--spacing-2xl) 0;
+        padding: var(--spacing-4xl) 0;
     }
     
     .section-header {
@@ -4233,7 +4238,7 @@ button {
     
     .hero {
         min-height: auto;
-        padding-top: calc(var(--header-height) + var(--spacing-xl));
+        padding-top: 0;
         padding-bottom: var(--spacing-xl);
     }
     
@@ -4349,7 +4354,7 @@ button {
     
     .section-title {
         font-size: clamp(1.5rem, 5vw, 2rem);
-        margin-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
     }
     
     .section-description {
@@ -4497,7 +4502,7 @@ button {
 @media (max-width: 1024px) and (orientation: landscape) {
     .hero {
         min-height: auto;
-        padding-top: calc(var(--header-height) + var(--spacing-lg));
+        padding-top: 0;
         padding-bottom: var(--spacing-lg);
     }
     
@@ -4841,6 +4846,6 @@ button {
     }
     
     .section {
-        padding: 2rem 0;
+        padding: var(--spacing-2xl) 0;
     }
 }
