@@ -997,7 +997,7 @@ function initLazyLoad() {
  * Tilt Effect on Cards
  */
 function initTiltEffect() {
-    const cards = document.querySelectorAll('.service-card, .testimonial-card');
+    const cards = document.querySelectorAll('.service-card, .service-detail-card, .testimonial-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
