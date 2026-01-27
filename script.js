@@ -1101,3 +1101,102 @@ function initRealisationsTabs() {
         });
     });
 }
+
+/**
+ * Ambient Glow Effect with Smooth Mouse Tracking (Services Page)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const servicesHero = document.querySelector('.services-hero');
+
+    if (servicesHero) {
+        let targetX = 85;
+        let targetY = 15;
+        let currentX = 85;
+        let currentY = 15;
+
+        servicesHero.addEventListener('mousemove', (e) => {
+            const rect = servicesHero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            targetX = (x / rect.width) * 100;
+            targetY = (y / rect.height) * 100;
+        });
+
+        // Smooth interpolation with lag
+        function updateGlowPosition() {
+            // Lerp (linear interpolation) with slow factor
+            const lagFactor = 0.03; // Lower = more lag
+
+            currentX += (targetX - currentX) * lagFactor;
+            currentY += (targetY - currentY) * lagFactor;
+
+            servicesHero.style.setProperty('--glow-x', `${currentX}%`);
+            servicesHero.style.setProperty('--glow-y', `${currentY}%`);
+
+            requestAnimationFrame(updateGlowPosition);
+        }
+
+        updateGlowPosition();
+    }
+});
+
+/**
+ * Typewriter Animation for Hero Title (Services Page)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const typewriterElement = document.getElementById('typewriter-text');
+    
+    if (!typewriterElement) return;
+    
+    const phrases = [
+        'croissance digitale',
+        'performance digitale',
+        'impact digital',
+        'visibilité digitale'
+    ];
+    
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    
+    function typeWriter() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isPaused) {
+            setTimeout(typeWriter, 1800); // Pause de 1.8s après écriture complète
+            isPaused = false;
+            isDeleting = true;
+            return;
+        }
+        
+        if (isDeleting) {
+            // Effacement
+            typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeWriter, 500); // Courte pause avant la prochaine phrase
+                return;
+            }
+            
+            setTimeout(typeWriter, 50); // Vitesse d'effacement
+        } else {
+            // Écriture
+            typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentPhrase.length) {
+                isPaused = true;
+            }
+            
+            setTimeout(typeWriter, isPaused ? 0 : 80); // Vitesse d'écriture
+        }
+    }
+    
+    // Démarrer l'animation après un court délai
+    setTimeout(typeWriter, 800);
+});
