@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NanNan Com | Témoignages Clients</title>
+    <meta name="description" content="Découvrez ce que nos clients disent de NanNan Com, à travers des témoignages écrits, audios et vidéos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles globaux du projet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="all_testimonials.css"> 
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">NANNAN COM</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor Custom -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <!-- Header (sticky, backdrop-blur) -->
+    <header class="header page-header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.png" alt="NanNan Com Logo" class="logo-img">
+                <span class="logo-text"></span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#realisations" class="nav-link">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="all_testimonials.html" class="nav-link active">Témoignages</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="index.html#contact" class="btn btn-outline nav-audit">Audit gratuit</a>
+                <a href="index.html#contact" class="btn btn-primary nav-cta">Contact / Devis</a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Hero pour les Témoignages -->
+        <section class="hero-testimonials">
+            <div class="container">
+                <h1 class="hero-title-testimonials">Ce que nos clients <span class="text-gradient">disent</span> de nous</h1>
+                <p class="hero-subtitle-testimonials">Écrits, audios ou vidéos, découvrez comment NanNan Com accompagne ses clients vers le succès.</p>
+            </div>
+        </section>
+
+        <!-- Filtres (5 boutons) -->
+        <section class="filters-section container">
+            <div class="filters-wrapper">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-sparkles"></i> Tous
+                </button>
+                <button class="filter-btn" data-filter="text">
+                    <i class="fas fa-file-alt"></i> Écrit
+                </button>
+                <button class="filter-btn" data-filter="audio">
+                    <i class="fas fa-volume-up"></i> Audio
+                </button>
+                <button class="filter-btn" data-filter="video">
+                    <i class="fas fa-video"></i> Vidéo
+                </button>
+                <button class="filter-btn" data-filter="message">
+                    <i class="fas fa-comment-dots"></i> Messages
+                </button>
+            </div>
+        </section>
+
+        <!-- Grille de Témoignages (responsive) -->
+        <section class="testimonials-grid-section container">
+            <div class="testimonials-grid" id="testimonials-grid">
+                <!-- Les témoignages seront injectés ici par JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section Citation Inspirante -->
+        <section class="quote-section" id="animated-quote-section">
+            <div class="quote-bg-glow"></div>
+            <div class="container">
+                <p class="quote-text">
+                    <i class="fas fa-sparkles quote-icon"></i>
+                    <span id="typewriter-line-1" class="typewriter-line"></span><br>
+                    <span id="typewriter-line-2" class="typewriter-line"></span><br>
+                    <span id="typewriter-line-3" class="typewriter-line"></span>
+                    <span class="typewriter-cursor">|</span> <!-- Curseur de frappe -->
+                </p>
+                <div class="quote-author" id="quote-author-name">
+                    — Maya Angelou
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Statistiques (3 cartes) -->
+        <section class="stats-section container">
+            <div class="stats-grid">
+                <div class="stat-card reveal-up">
+                    <h3 class="stat-number text-gradient">500+</h3>
+                    <p class="stat-label">Clients satisfaits</p>
+                </div>
+                <div class="stat-card reveal-up delay-1">
+                    <h3 class="stat-number text-gradient">98%</h3>
+                    <p class="stat-label">Taux de satisfaction</p>
+                </div>
+                <div class="stat-card reveal-up delay-2">
+                    <h3 class="stat-number text-gradient">24/7</h3>
+                    <p class="stat-label">Support disponible</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 NanNan Com — Tous droits réservés</p>
+                <div class="footer-legal">
+                    <a href="index.html">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+            <span class="chatbot-badge">1</span>
+        </div>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3>NanNan Com Assistant</h3>
+                        <span class="chatbot-status">En ligne</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <!-- Messages will be added dynamically -->
+            </div>
+            <div class="chatbot-input-container" id="chatbot-input-container">
+                <!-- Input will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="close-modal">&times;</span>
+            <video id="testimonial-video" controls autoplay></video>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="video-modal"> <!-- Réutiliser la classe .video-modal pour le style de base -->
+        <div class="video-modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Témoignage en image">
+        </div>
+    </div>
+
+    <!-- Floating Submission Button -->
+    <div class="floating-submit-btn" id="floating-submit-btn">
+        <i class="fas fa-paper-plane"></i>
+    </div>
+
+    <!-- Submission Form Overlay (Slide-up) -->
+    <div class="submission-form-overlay" id="submission-form-overlay">
+        <div class="submission-form-container">
+            <button class="close-form">&times;</button>
+            <h3>Partagez votre expérience !</h3>
+            <p>Aidez-nous à améliorer nos services en laissant un témoignage.</p>
+            <form id="testimonial-form">
+                <div class="form-group">
+                    <label for="form-name">Nom <span class="required">*</span></label>
+                    <input type="text" id="form-name" name="name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-role">Fonction</label>
+                        <input type="text" id="form-role" name="role">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-company">Entreprise</label>
+                        <input type="text" id="form-company" name="company">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Type de témoignage <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="type" value="text" required> <i class="fas fa-file-alt"></i> Écrit</label>
+                        <label><input type="radio" name="type" value="audio"> <i class="fas fa-volume-up"></i> Audio</label>
+                        <label><input type="radio" name="type" value="video"> <i class="fas fa-video"></i> Vidéo</label>
+                        <label><input type="radio" name="type" value="message"> <i class="fas fa-comment-dots"></i> Message</label>
+                    </div>
+                </div>
+                <div class="form-group" id="content-group">
+                    <label for="form-content">Votre témoignage <span class="required">*</span></label>
+                    <textarea id="form-content" name="content" rows="5" required></textarea>
+                </div>
+                <div class="form-group file-upload-group" style="display: none;">
+                    <label for="form-file">Fichier (Audio/Vidéo/Image) <span class="required">*</span></label>
+                    <div class="drop-zone" id="drop-zone">
+                        Glissez-déposez votre fichier ici ou <span class="browse-files">cliquez pour sélectionner</span>
+                        <input type="file" id="form-file" name="file" accept="audio/*,video/*,image/*" class="file-input">
+                    </div>
+                    <p class="file-name-display"></p>
+                </div>
+                <div class="form-group" id="file-message-group" style="display: none;">
+                    <label for="form-file-message">Message (facultatif)</label>
+                    <textarea id="form-file-message" name="file-message" rows="3" placeholder="Ajoutez une description ou un message..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-testimonial">
+                    <span>Envoyer mon témoignage</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <div class="submission-success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    Témoignage envoyé avec succès ! Merci.
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Scripts du projet -->
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+    <!-- Script spécifique à cette page -->
+    <script src="data.js"></script>
+    <script src="all_testimonials.js"></script>
+</body>
+</html>
